@@ -15,8 +15,6 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "host_os.h"
-#include "os_detection.h"
 #include "muse.h"
 
 enum preonic_layers {
@@ -52,11 +50,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------------------------------'
      */
     [_QWERTY] = LAYOUT_preonic_grid(
-        KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_QUOTE,
-        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC,
-        KC_BSPC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_ENT,
-        KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-        KC_LCTL, KC_LALT, KC_LGUI, KC_LEAD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
+    KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_QUOTE,
+    KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC,
+    KC_BSPC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_ENT,
+    KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+    KC_LCTL, KC_LALT, KC_LGUI, QK_LEAD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
     ),
 
     /* Colemak
@@ -73,11 +71,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------------------------------'
      */
     [_COLEMAK] = LAYOUT_preonic_grid(
-        KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_QUOTE,
-        KC_TAB, KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, KC_LBRC,
-        KC_BSPC, KC_A, KC_R, KC_S, KC_T, KC_D, KC_H, KC_N, KC_E, KC_I, KC_O, KC_ENT,
-        KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
-        KC_LCTL, KC_LALT, KC_LGUI, KC_LEAD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
+    KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_QUOTE,
+    KC_TAB, KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, KC_LBRC,
+    KC_BSPC, KC_A, KC_R, KC_S, KC_T, KC_D, KC_H, KC_N, KC_E, KC_I, KC_O, KC_ENT,
+    KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT,
+    KC_LCTL, KC_LALT, KC_LGUI, QK_LEAD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
     ),
 
     /* Dvorak
@@ -94,11 +92,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------------------------------'
      */
     [_DVORAK] = LAYOUT_preonic_grid(
-        KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_QUOTE,
-        KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_LBRC,
-        KC_BSPC, KC_A, KC_O, KC_E, KC_U, KC_I, KC_D, KC_H, KC_T, KC_N, KC_S, KC_ENT,
-        KC_LSFT, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_B, KC_M, KC_W, KC_V, KC_Z, KC_RSFT,
-        KC_LCTL, KC_LALT, KC_LGUI, KC_LEAD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
+    KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_QUOTE,
+    KC_TAB, KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_F, KC_G, KC_C, KC_R, KC_L, KC_LBRC,
+    KC_BSPC, KC_A, KC_O, KC_E, KC_U, KC_I, KC_D, KC_H, KC_T, KC_N, KC_S, KC_ENT,
+    KC_LSFT, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_B, KC_M, KC_W, KC_V, KC_Z, KC_RSFT,
+    KC_LCTL, KC_LALT, KC_LGUI, QK_LEAD, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT
     ),
 
     /* Lower
@@ -107,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+-------------+------+------+------+------+------|
      * |   ~  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   (  |   )  |  |   |
      * |------+------+------+------+------+-------------+------+------+------+------+------|
-     * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  | Left | Down |  Up  |Right |Enter |
+     * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  | Left | Down |  Up  |Right |  F6  |Enter |
      * |------+------+------+------+------+------|------+------+------+------+------+------|
      * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO ~ |ISO | | Home | End  |      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -115,11 +113,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------------------------------'
      */
     [_LOWER] = LAYOUT_preonic_grid(
-        KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINUS,
-        KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-        KC_DEL, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_ENT,
-        KC_SHIFT, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, S(KC_NUHS), S(KC_NUBS), KC_HOME, KC_END, KC_SHIFT,
-        _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+    KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_MINUS,
+    KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
+    KC_DEL, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_F6, KC_ENT,
+    KC_LSFT, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,S(KC_NUHS),S(KC_NUBS), KC_HOME, KC_END, KC_RSFT,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
     ),
 
     /* Raise
@@ -128,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------+------+------+------+------+------+------|
      * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |  \   |
      * |------+------+------+------+------+-------------+------+------+------+------+------|
-     * | Caps |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  | Left | Down |  Up  |Right |Enter |
+     * | Caps |  F1  |  F2  |  F3  |  F4  |  F5  | Left | Down |  Up  |Right |  F6  |Enter |
      * |------+------+------+------+------+------|------+------+------+------+------+------|
      * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO # |ISO / | Pg Up| Pg Dn|      |
      * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -138,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_RAISE] = LAYOUT_preonic_grid(
         KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_EQUAL,
         KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSLS,
-        KC_CAPS, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_ENT,
+        KC_CAPS, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_F6,KC_ENT,
         _______, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
     ),
@@ -157,18 +155,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------------------------------'
      */
     [_ADJUST] = LAYOUT_preonic_grid(
-        KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
-        _______, RESET, DEBUG, _______, _______, _______, _______, TERM_ON, TERM_OFF, _______, _______, _______,
-        _______, _______, MU_MOD, AU_ON, AU_OFF, AG_NORM, AG_SWAP, QWERTY, COLEMAK, DVORAK, _______, _______,
-        _______, MUV_DE, MUV_IN, MU_ON, MU_OFF, MI_ON, MI_OFF, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+    _______, QK_BOOT, DB_TOGG, _______, _______, _______, _______, _______, _______, _______, _______, KC_DEL,
+    _______, _______, MU_NEXT, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______,
+    _______, AU_PREV, AU_NEXT, MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     )
 
 };
 
-const rgblight_segment_t PROGMEM qwerty_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 9, 0, 0, 0});
+const rgblight_segment_t PROGMEM qwerty_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 9, HSV_RED});
 const rgblight_segment_t PROGMEM lower_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_GREEN});
-const rgblight_segment_t PROGMEM raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_RED});
+const rgblight_segment_t PROGMEM raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_ORANGE});
 const rgblight_segment_t PROGMEM adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_PURPLE});
 const rgblight_segment_t PROGMEM capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_WHITE});
 const rgblight_segment_t PROGMEM leader_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_BLUE });
@@ -180,22 +178,27 @@ const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     raise_layer,
     adjust_layer,
     capslock_layer,
-    leader_layer,
+    leader_layer
 );
 
 void keyboard_post_init_user(void) {
     rgblight_layers = rgb_layers;
     rgblight_set_layer_state(0, true);
+    layer_state_set_user(layer_state);
 }
+
+bool isCapsLockOn = false;
 
 bool led_update_user(led_t led_state) {
     // Turn on RBG for capslock.
+    isCapsLockOn = led_state.caps_lock;
     rgblight_set_layer_state(4, led_state.caps_lock);
     return true;
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Set RBG layer according to active keymap layer.
+    // TODO: Currently not working, gotta fix it.
     rgblight_set_layer_state(1, layer_state_cmp(state, 1));
     rgblight_set_layer_state(2, layer_state_cmp(state, 2));
     rgblight_set_layer_state(3, layer_state_cmp(state, 1) && layer_state_cmp(state, 2));
@@ -298,196 +301,7 @@ bool dip_switch_update_user(uint8_t index, bool active) {
     return true;
 }
 
-os_variant_t os;
-
-void matrix_init_user(void) {
-    os = detected_host_os();
-}
-
-#ifdef LEADER_ENABLE
-    LEADER_EXTERNS();
-#endif
-
 void matrix_scan_user(void) {
-    #ifdef LEADER_ENABLE
-
-    LEADER_DICTIONARY() {
-        // OS Check
-        bool isMac = os === OS_MACOS;
-
-        // Initialize did_leader_succeed as well as leading to be false
-        did_leader_succeed = leading = false;
-
-        // You can use SEQ_ONE_KEY, SEQ_TWO_KEYS, SEQ_THREE_KEYS,
-        // SEQ_FOUR_KEYS, SEQ_FIVE_KEYS to define your sequences.
-
-        /*  CapsLock */
-        SEQ_ONE_KEY(KC_BSPC) {
-            tap_code(KC_CAPS);
-            did_leader_succeed = true;
-        }
-
-         /*  çÇ      => LdrKey > C */
-        SEQ_ONE_KEY(KC_C) {
-            if (isMac) {
-                SEND_STRING(SS_LALT("c"));
-            } else {
-                IS_HOST_LED_ON(USB_LED_CAPS_LOCK) ? SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_P1) SS_TAP(X_P2) SS_TAP(X_P8) SS_UP(X_LALT)) : SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_P1) SS_TAP(X_P3) SS_TAP(X_P5) SS_UP(X_LALT));
-            }
-            did_leader_succeed = true;
-        }
-
-        SEQ_ONE_KEY(KC_K) {
-            // Page Up: Leader > K
-            isMac ? SEND_STRING(SS_TAP(X_HOME)) : SEND_STRING(SS_LCTL(SS_TAP(X_HOME)));
-            did_leader_succeed = true;
-        }
-
-        SEQ_ONE_KEY(KC_J) {
-            // Page Down: Leader > J
-            isMac ? SEND_STRING(SS_TAP(X_END)): SEND_STRING(SS_LCTL(SS_TAP(X_END)));
-            did_leader_succeed = true;
-        }
-
-        SEQ_ONE_KEY(KC_X) {
-            // Close Current App: Leader > X
-            isMac ? SEND_STRING(SS_LGUI(SS_TAP(X_Q))) : SEND_STRING(SS_LALT(SS_TAP(X_F4)));
-            did_leader_succeed = true;
-        }
-
-        SEQ_ONE_KEY(KC_C) {
-            // Printscreen: Leader > C
-            isMac ? SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_4)))) : SEND_STRING(SS_TAP(X_PSCR));
-            did_leader_succeed = true;
-        }
-
-        /*  Show Desktop            => LdrKey > D */
-        SEQ_ONE_KEY(KC_D) {
-            onMac ? SEND_STRING(SS_LGUI(SS_TAP(X_SPC)) "Mission" SS_TAP(X_ENT)) : SEND_STRING(SS_LGUI(SS_TAP(X_D)));
-            did_leader_succeed = true;
-        }
-
-         /*  <=      => LdrKey > , > , */
-        SEQ_TWO_KEYS(KC_COMM, KC_COMM) {
-            SEND_STRING(SS_LSFT(SS_TAP(X_COMM)) SS_TAP(X_SPC) SS_TAP(X_EQL) SS_TAP(X_LEFT) SS_TAP(X_BSPC) SS_TAP(X_RIGHT));
-            did_leader_succeed = true;
-        }
-
-         /*  =>      => LdrKey > . > . */
-        SEQ_TWO_KEYS(KC_DOT, KC_DOT) {
-            SEND_STRING("=>");
-            did_leader_succeed = true;
-        }
-
-        /*  Backward delete current word (on cursor) */
-        SEQ_TWO_KEYS(KC_LEFT, KC_BSPC, KC_BSPC) {
-            isMac ? SEND_STRING(SS_LALT(SS_TAP(X_RIGHT)) SS_LALT(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC)) : SEND_STRING(SS_LCTL(SS_TAP(X_RIGHT)) SS_LCTL(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC));
-            did_leader_succeed = true;
-        }
-        /*  Previous word delete */
-        SEQ_ONE_KEY(KC_LEFT, KC_BSPC) {
-            isMac ? SEND_STRING(SS_LALT(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC)) : SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC));
-            did_leader_succeed = true;
-        }
-        /*  Forward delete current word (on cursor) */
-        SEQ_TWO_KEYS(KC_RGHT, KC_BSPC, KC_BSPC) {
-            isMac ? SEND_STRING(SS_LALT(SS_TAP(X_LEFT)) SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL)) : SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_LCTL(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL));
-            did_leader_succeed = true;
-        }
-        /*  Next word delete */
-        SEQ_ONE_KEY(KC_RGHT, KC_BSPC) {
-            isMac ? SEND_STRING(SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL)): SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL));
-            did_leader_succeed = true;
-        }
-
-         /*  Select everything on this line before cursor => LdrKey > Left */
-        SEQ_ONE_KEY(KC_LEFT) {
-            isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_LEFT)))) : SEND_STRING(SS_LSFT(SS_TAP(X_HOME)));
-            did_leader_succeed = true;
-        }
-        /*  Select everything on this line after cursor  => LdrKey > Right */
-        SEQ_ONE_KEY(KC_RGHT) {
-            isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_RIGHT)))) : SEND_STRING(SS_LSFT(SS_TAP(X_END)));
-            did_leader_succeed = true;
-        }
-        /*  Select everything on this line before cursor and bring on previous line => LdrKey > Left > Left */
-        SEQ_TWO_KEYS(KC_LEFT, KC_LEFT) {
-            isMac ? SEND_STRING(SS_LSFT(SS_TAP(X_UP) SS_LGUI(SS_TAP(X_RIGHT)))) : SEND_STRING(SS_LSFT(SS_TAP(X_UP) SS_TAP(X_END)));
-            did_leader_succeed = true;
-        }
-        /*  Select everything on this line  => LdrKey > Right > Left */
-        SEQ_TWO_KEYS(KC_RGHT, KC_LEFT) {
-            isMac ? SEND_STRING(SS_LGUI(SS_TAP(X_RIGHT) SS_LSFT(SS_LGUI(SS_TAP(X_LEFT))))) : SEND_STRING(SS_TAP(X_END) SS_LSFT(SS_TAP(X_HOME)));
-            did_leader_succeed = true;
-        }
-        /*  Select 1x Page Up on the page before the cursor  => LdrKey > Up */
-        SEQ_ONE_KEY(KC_UP) {
-            SEND_STRING(SS_LSFT(SS_TAP(X_PGUP)));
-            did_leader_succeed = true;
-        }
-        /*  Select 1x Page Down on the page after the cursor => LdrKey > Down */
-        SEQ_ONE_KEY(KC_DOWN) {
-            SEND_STRING(SS_LSFT(SS_TAP(X_PGDN)));
-            did_leader_succeed = true;
-        }
-        /*  Select everything on the page before the cursor => LdrKey > Up > Up */
-        SEQ_TWO_KEYS(KC_UP, KC_UP) {
-            isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_UP)))) : SEND_STRING(SS_LSFT(SS_LCTL(SS_TAP(X_HOME))));
-            did_leader_succeed = true;
-        }
-        /*  Select everything on the page after the cursor => LdrKey > Down > Down */
-        SEQ_TWO_KEYS(KC_DOWN, KC_DOWN) {
-            isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_DOWN)))) : SEND_STRING(SS_LSFT(SS_LCTL(SS_TAP(X_END))));
-            did_leader_succeed = true;
-        }
-
-        SEQ_ONE_KEY(KC_SLSH) {
-            // ://: Leader > /
-            SEND_STRING("://");
-            did_leader_succeed = true;
-        }
-
-        SEQ_THREE_KEYS(KC_P, KC_V, KC_T) {
-            // Private Window: Leader > PVT
-            SEND_STRING(SS_LCTL(SS_LSFT('n')));
-            did_leader_succeed = true;
-        }
-
-        SEQ_FOUR_KEYS(KC_C, KC_O, KC_R, KC_T) {
-            // Cortana: Leader > CORT
-            SEND_STRING(SS_LGUI(SS_TAP(X_C)));
-            did_leader_succeed = true;
-        }
-
-        SEQ_THREE_KEYS(KC_U, KC_N, KC_D) {
-            // Underscore: Leader > UND
-            SEND_STRING('_');
-            did_leader_succeed = true;
-        }
-
-        SEQ_FOUR_KEYS(KC_P, KC_L, KC_U, KC_S) {
-            // Plus Sign: Leader > PLUS
-            SEND_STRING('+');
-            did_leader_succeed = true;
-        }
-
-        SEQ_FIVE_KEYS(KC_M, KC_I, KC_N, KC_U, KC_S) {
-            // Minus Sign: Leader > MINUS
-            SEND_STRING('-');
-            did_leader_succeed = true;
-        }
-
-        SEQ_FIVE_KEYS(KC_E, KC_Q, KC_U, KC_A, KC_L) {
-            // Equal Sign: Leader > EQUAL
-            SED_STRING('=');
-            did_leader_succeed = true;
-        }
-
-        // Call leader_end at the end of the function, instead of at
-        // the start. This way, we're sure we have set did_leader_succeed.
-        leader_end();
-    }
-    #endif
 
     #ifdef AUDIO_ENABLE
     if (muse_mode) {
@@ -510,23 +324,153 @@ void matrix_scan_user(void) {
 }
 
 #ifdef AUDIO_ENABLE
-    float leader_start[][2] = SONG(TERMINAL_SOUND);
-    float leader_success[][2] = SONG(UNICODE_WINDOWS);
-    float leader_failure[][2] = SONG(UNICODE_LINUX);
+    float leader_start_sound[][2] = SONG(TERMINAL_SOUND);
+    float leader_success_sound[][2] = SONG(UNICODE_WINDOWS);
+    float leader_failure_sound[][2] = SONG(UNICODE_LINUX);
 #endif
 
-void leader_start(void) {
-    PLAY_SONG(leader_start);
+void leader_start_user(void) {
+    #ifdef AUDIO_ENABLE
+        PLAY_SONG(leader_start_sound);
+    #endif
     // Turn on RGB for leader
     rgblight_set_layer_state(5, true);
 }
 
-void leader_end(void) {
-    if (did_leader_succeed) {
-        PLAY_SONG(leader_success);
-    } else {
-        PLAY_SONG(leader_failure);
+void leader_end_user(void) {
+
+    // TODO: OS Check
+    bool isMac = false;
+
+    // Initialize did_leader_succeed as well as leading to be false
+    bool did_leader_succeed = false;
+
+        //  CapsLock: Leader > Backspace
+    if (leader_sequence_one_key(KC_BSPC)) {
+        tap_code(KC_CAPS);
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_C)) {
+        //  çÇ: Leader > C
+        if (isMac) {
+            SEND_STRING(SS_LALT("c"));
+        } else {
+            isCapsLockOn ? SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_P1) SS_TAP(X_P2) SS_TAP(X_P8) SS_UP(X_LALT)) : SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_P1) SS_TAP(X_P3) SS_TAP(X_P5) SS_UP(X_LALT));
+        }
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_K)) {
+        // Page Up: Leader > K
+        isMac ? SEND_STRING(SS_TAP(X_HOME)) : SEND_STRING(SS_LCTL(SS_TAP(X_HOME)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_J)) {
+        // Page Down: Leader > J
+        isMac ? SEND_STRING(SS_TAP(X_END)): SEND_STRING(SS_LCTL(SS_TAP(X_END)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_X)) {
+        // Close Current App: Leader > X
+        isMac ? SEND_STRING(SS_LGUI(SS_TAP(X_Q))) : SEND_STRING(SS_LALT(SS_TAP(X_F4)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_C)) {
+        // Printscreen: Leader > C
+        isMac ? SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_4)))) : SEND_STRING(SS_TAP(X_PSCR));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_D)) {
+        /*  Show Desktop            => LdrKey > D */
+        isMac ? SEND_STRING(SS_LGUI(SS_TAP(X_SPC)) "Mission" SS_TAP(X_ENT)) : SEND_STRING(SS_LGUI(SS_TAP(X_D)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_COMM, KC_COMM)) {
+        /*  <=      => LdrKey > , > , */
+        SEND_STRING(SS_LSFT(SS_TAP(X_COMM)) SS_TAP(X_SPC) SS_TAP(X_EQL) SS_TAP(X_LEFT) SS_TAP(X_BSPC) SS_TAP(X_RIGHT));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_DOT, KC_DOT)) {
+        /*  =>      => LdrKey > . > . */
+        SEND_STRING("=>");
+        did_leader_succeed = true;
+    } else if (leader_sequence_three_keys(KC_LEFT, KC_BSPC, KC_BSPC)) {
+        /*  Backward delete current word (on cursor) */
+        isMac ? SEND_STRING(SS_LALT(SS_TAP(X_RIGHT)) SS_LALT(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC)) : SEND_STRING(SS_LCTL(SS_TAP(X_RIGHT)) SS_LCTL(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_LEFT, KC_BSPC)) {
+        /*  Previous word delete */
+        isMac ? SEND_STRING(SS_LALT(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC)) : SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_LEFT))) SS_TAP(X_BSPC));
+        did_leader_succeed = true;
+    } else if (leader_sequence_three_keys(KC_RGHT, KC_BSPC, KC_BSPC)) {
+        /*  Forward delete current word (on cursor) */
+        isMac ? SEND_STRING(SS_LALT(SS_TAP(X_LEFT)) SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL)) : SEND_STRING(SS_LCTL(SS_TAP(X_LEFT)) SS_LCTL(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_RGHT, KC_BSPC)) {
+        /*  Next word delete */
+        isMac ? SEND_STRING(SS_LALT(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL)): SEND_STRING(SS_LCTL(SS_LSFT(SS_TAP(X_RIGHT))) SS_TAP(X_DEL));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_LEFT)) {
+        /*  Select everything on this line before cursor => LdrKey > Left */
+        isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_LEFT)))) : SEND_STRING(SS_LSFT(SS_TAP(X_HOME)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_RGHT)) {
+        /*  Select everything on this line after cursor  => LdrKey > Right */
+        isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_RIGHT)))) : SEND_STRING(SS_LSFT(SS_TAP(X_END)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_LEFT, KC_LEFT)) {
+        /*  Select everything on this line before cursor and bring on previous line => LdrKey > Left > Left */
+        isMac ? SEND_STRING(SS_LSFT(SS_TAP(X_UP) SS_LGUI(SS_TAP(X_RIGHT)))) : SEND_STRING(SS_LSFT(SS_TAP(X_UP) SS_TAP(X_END)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_RGHT, KC_LEFT)) {
+        /*  Select everything on this line  => LdrKey > Right > Left */
+        isMac ? SEND_STRING(SS_LGUI(SS_TAP(X_RIGHT) SS_LSFT(SS_LGUI(SS_TAP(X_LEFT))))) : SEND_STRING(SS_TAP(X_END) SS_LSFT(SS_TAP(X_HOME)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_UP)) {
+        /*  Select 1x Page Up on the page before the cursor  => LdrKey > Up */
+        SEND_STRING(SS_LSFT(SS_TAP(X_PGUP)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_DOWN)) {
+        /*  Select 1x Page Down on the page after the cursor => LdrKey > Down */
+        SEND_STRING(SS_LSFT(SS_TAP(X_PGDN)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_UP, KC_UP)) {
+        /*  Select everything on the page before the cursor => LdrKey > Up > Up */
+        isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_UP)))) : SEND_STRING(SS_LSFT(SS_LCTL(SS_TAP(X_HOME))));
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_DOWN, KC_DOWN)) {
+        /*  Select everything on the page after the cursor => LdrKey > Down > Down */
+        isMac ? SEND_STRING(SS_LSFT(SS_LGUI(SS_TAP(X_DOWN)))) : SEND_STRING(SS_LSFT(SS_LCTL(SS_TAP(X_END))));
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_SLSH)) {
+            // ://: Leader > /
+        SEND_STRING("://");
+        did_leader_succeed = true;
+    } else if (leader_sequence_three_keys(KC_P, KC_V, KC_T)) {
+        // Private Window: Leader > PVT
+        SEND_STRING(SS_LCTL(SS_LSFT("n")));
+        did_leader_succeed = true;
+    } else if (leader_sequence_four_keys(KC_C, KC_O, KC_R, KC_T)) {
+        // Cortana: Leader > CORT
+        SEND_STRING(SS_LGUI(SS_TAP(X_C)));
+        did_leader_succeed = true;
+    } else if (leader_sequence_three_keys(KC_U, KC_N, KC_D)) {
+        // Underscore: Leader > UND
+        SEND_STRING("_");
+        did_leader_succeed = true;
+    } else if (leader_sequence_four_keys(KC_P, KC_L, KC_U, KC_S)) {
+        // Plus Sign: Leader > PLUS
+        SEND_STRING("+");
+        did_leader_succeed = true;
+    } else if (leader_sequence_five_keys(KC_M, KC_I, KC_N, KC_U, KC_S)) {
+        // Minus Sign: Leader > MINUS
+        SEND_STRING("-");
+        did_leader_succeed = true;
+    } else if (leader_sequence_five_keys(KC_E, KC_Q, KC_U, KC_A, KC_L)) {
+        // Equal Sign: Leader > EQUAL
+        SEND_STRING("=");
+        did_leader_succeed = true;
     }
+
+
+    #ifdef AUDIO_ENABLE
+    if (did_leader_succeed) {
+        PLAY_SONG(leader_success_sound);
+    } else {
+        PLAY_SONG(leader_failure_sound);
+    }
+    #endif
 
     // Turn off RGB for leader
     rgblight_set_layer_state(5, false);

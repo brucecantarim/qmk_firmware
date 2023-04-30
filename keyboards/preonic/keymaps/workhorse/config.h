@@ -17,7 +17,7 @@
 #pragma once
 
 #ifdef AUDIO_ENABLE
-#    define AUDIO_INIT_DELAY  // Startup Sound Bug Workaround
+// #    define AUDIO_INIT_DELAY  // Old startup Sound Bug Workaround
 #    define STARTUP_SONG SONG(ZELDA_PUZZLE)
 // #define STARTUP_SONG SONG(NO_SOUND)
 
@@ -51,6 +51,6 @@
 #define RGBLIGHT_LAYERS
 #define RGBLIGHT_LED_MAP {8, 2, 3, 7, 6, 5, 4, 0, 1}
 
-#define LEADER_TIMEOUT 200
+#define LEADER_TIMEOUT 350
 #define LEADER_PER_KEY_TIMING
 

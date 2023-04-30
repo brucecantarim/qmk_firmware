@@ -1,3 +1,2 @@
 SRC += muse.c
-OS_DETECTION_ENABLED = yes
 LEADER_ENABLE = yes
