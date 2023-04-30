@@ -1,0 +1,2 @@
+# Workhorse layout was created by Bruce Cantarim, as a daily driver for touch typing and general development work.
+# Feel free to copy these settings and creating your own layout using workhorse as a base.
