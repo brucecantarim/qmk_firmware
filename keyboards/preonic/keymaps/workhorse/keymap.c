@@ -345,10 +345,28 @@ void leader_end_user(void) {
     // Initialize did_leader_succeed as well as leading to be false
     bool did_leader_succeed = false;
 
+    if (leader_sequence_one_key(LOWER)) {
+        //  Lower Sticky: Leader > Lower * TODO: Fix it!
+        layer_on(_LOWER);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    } else if (leader_sequence_one_key(RAISE)) {
+        //  Lower Sticky: Leader > Raise * TODO: Fix it!
+        layer_on(_RAISE);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+    } else if (leader_sequence_one_key(KC_Q)) {
+        //  Layers Off: Leader > Q
+        layer_off(_LOWER);
+        layer_off(_RAISE);
+        update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        set_single_persistent_default_layer(_QWERTY);
+    } else if (leader_sequence_one_key(KC_BSPC)) {
         //  CapsLock: Leader > Backspace
-    if (leader_sequence_one_key(KC_BSPC)) {
         tap_code(KC_CAPS);
         did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_QUOT)) {
+        // FUCK: Leader > '
+        SEND_STRING("fuck");
+        tap_code(KC_ENTER);
     } else if (leader_sequence_one_key(KC_C)) {
         //  çÇ: Leader > C
         if (isMac) {
@@ -384,6 +402,18 @@ void leader_end_user(void) {
     } else if (leader_sequence_two_keys(KC_DOT, KC_DOT)) {
         /*  =>      => LdrKey > . > . */
         SEND_STRING("=>");
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_9)) {
+        // Full parenthesis
+        SEND_STRING("()");
+        did_leader_succeed = true;
+    } else if (leader_sequence_one_key(KC_LBRC)) {
+        // Full curly braces
+        SEND_STRING("{}");
+        did_leader_succeed = true;
+    } else if (leader_sequence_two_keys(KC_LBRC, KC_LBRC)) {
+        // Full brackets
+        SEND_STRING("[]");
         did_leader_succeed = true;
     } else if (leader_sequence_three_keys(KC_LEFT, KC_BSPC, KC_BSPC)) {
         /*  Backward delete current word (on cursor) */
@@ -436,30 +466,6 @@ void leader_end_user(void) {
     } else if (leader_sequence_one_key(KC_SLSH)) {
             // ://: Leader > /
         SEND_STRING("://");
-        did_leader_succeed = true;
-    } else if (leader_sequence_three_keys(KC_P, KC_V, KC_T)) {
-        // Private Window: Leader > PVT
-        SEND_STRING(SS_LCTL(SS_LSFT("n")));
-        did_leader_succeed = true;
-    } else if (leader_sequence_four_keys(KC_C, KC_O, KC_R, KC_T)) {
-        // Cortana: Leader > CORT
-        SEND_STRING(SS_LGUI(SS_TAP(X_C)));
-        did_leader_succeed = true;
-    } else if (leader_sequence_three_keys(KC_U, KC_N, KC_D)) {
-        // Underscore: Leader > UND
-        SEND_STRING("_");
-        did_leader_succeed = true;
-    } else if (leader_sequence_four_keys(KC_P, KC_L, KC_U, KC_S)) {
-        // Plus Sign: Leader > PLUS
-        SEND_STRING("+");
-        did_leader_succeed = true;
-    } else if (leader_sequence_five_keys(KC_M, KC_I, KC_N, KC_U, KC_S)) {
-        // Minus Sign: Leader > MINUS
-        SEND_STRING("-");
-        did_leader_succeed = true;
-    } else if (leader_sequence_five_keys(KC_E, KC_Q, KC_U, KC_A, KC_L)) {
-        // Equal Sign: Leader > EQUAL
-        SEND_STRING("=");
         did_leader_succeed = true;
     }
 

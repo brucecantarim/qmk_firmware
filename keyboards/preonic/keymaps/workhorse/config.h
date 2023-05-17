@@ -17,7 +17,7 @@
 #pragma once
 
 #ifdef AUDIO_ENABLE
-// #    define AUDIO_INIT_DELAY  // Old startup Sound Bug Workaround
+#    define AUDIO_INIT_DELAY  // Old startup Sound Bug Workaround
 #    define STARTUP_SONG SONG(ZELDA_PUZZLE)
 // #define STARTUP_SONG SONG(NO_SOUND)
 
