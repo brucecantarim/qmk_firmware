@@ -17,11 +17,10 @@
 #pragma once
 
 #ifdef AUDIO_ENABLE
-#    define AUDIO_INIT_DELAY  // Old startup Sound Bug Workaround
-#    define STARTUP_SONG SONG(ZELDA_PUZZLE)
-// #define STARTUP_SONG SONG(NO_SOUND)
+    #define AUDIO_INIT_DELAY  // Old startup Sound Bug Workaround
+    #define STARTUP_SONG SONG(PREONIC_SOUND)
 
-#    define DEFAULT_LAYER_SONGS \
+    #define DEFAULT_LAYER_SONGS \
         { SONG(QWERTY_SOUND), SONG(COLEMAK_SOUND), SONG(DVORAK_SOUND) }
 #endif
 
