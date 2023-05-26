@@ -304,12 +304,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-const rgblight_segment_t PROGMEM qwerty_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 9, HSV_RED});
+const rgblight_segment_t PROGMEM qwerty_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 9, HSV_WHITE});
 const rgblight_segment_t PROGMEM lower_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_GREEN});
-const rgblight_segment_t PROGMEM raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_ORANGE});
-const rgblight_segment_t PROGMEM adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_PURPLE});
-const rgblight_segment_t PROGMEM capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_WHITE});
-const rgblight_segment_t PROGMEM leader_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_BLUE });
+const rgblight_segment_t PROGMEM raise_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_RED});
+const rgblight_segment_t PROGMEM adjust_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_TEAL});
+const rgblight_segment_t PROGMEM capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_YELLOW});
+const rgblight_segment_t PROGMEM leader_layer[] = RGBLIGHT_LAYER_SEGMENTS({0, 8, HSV_BLUE});
 
 // Later layers take precedence.
 const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -327,22 +327,26 @@ void keyboard_post_init_user(void) {
     layer_state_set_user(layer_state);
 }
 
-bool isCapsLockOn = false;
+bool isCapsLockOn = false; // Set here for Leader Key functionality logic
 
 bool led_update_user(led_t led_state) {
     // Turn on RBG for capslock.
-    isCapsLockOn = led_state.caps_lock;
+    isCapsLockOn = led_state.caps_lock; // Updating it with current value
     rgblight_set_layer_state(4, led_state.caps_lock);
     return true;
 }
 
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _QWERTY));
+    return state;
+}
+
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Set RBG layer according to active keymap layer.
-    // TODO: Currently not working, gotta fix it.
-    rgblight_set_layer_state(1, layer_state_cmp(state, 1));
-    rgblight_set_layer_state(2, layer_state_cmp(state, 2));
-    rgblight_set_layer_state(3, layer_state_cmp(state, 1) && layer_state_cmp(state, 2));
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    rgblight_set_layer_state(1, layer_state_cmp(state, _LOWER));
+    rgblight_set_layer_state(2, layer_state_cmp(state, _RAISE));
+    rgblight_set_layer_state(3, layer_state_cmp(state, _LOWER) && layer_state_cmp(state, _RAISE));
+    return state;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -376,11 +380,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 layer_on(_LOWER);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                rgblight_set_layer_state(1, true);
             } else {
                 layer_off(_LOWER);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                rgblight_set_layer_state(1, false);
             }
             return false;
             break;
@@ -388,11 +390,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 layer_on(_RAISE);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                rgblight_set_layer_state(2, true);
             } else {
                 layer_off(_RAISE);
                 update_tri_layer(_LOWER, _RAISE, _ADJUST);
-                rgblight_set_layer_state(2, false);
             }
             return false;
             break;
@@ -500,16 +500,12 @@ void leader_end_user(void) {
         //  Lower Sticky: Leader > Lower
         set_single_persistent_default_layer(_LOWER);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
+        did_leader_succeed = true;
     } else if (leader_sequence_one_key(RAISE)) {
         //  Lower Sticky: Leader > Raise
         set_single_persistent_default_layer(_RAISE);
         update_tri_layer(_LOWER, _RAISE, _ADJUST);
-    } else if (leader_sequence_one_key(KC_Q)) {
-        //  Layers Off: Leader > Q
-        layer_off(_LOWER);
-        layer_off(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _ADJUST);
-        set_single_persistent_default_layer(_QWERTY);
+        did_leader_succeed = true;
     } else if (leader_sequence_one_key(KC_BSPC)) {
         //  CapsLock: Leader > Backspace
         tap_code(KC_CAPS);
